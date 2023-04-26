@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Forestry</title>
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+
+
+</head>
+<body>
+
+<div class="flex-container" style="background-color: grey">
+    <div class="add-row">
+        <h1>Forestry</h1>
+    </div>
+</div>
+
+<div class="container"  >
+    <div class="row">
+        <div  class="col-sm-6" style="height: 200px">
+            <div >
+                <h1>Inventory</h1>
+            </div>
+
+        <form action="/insert{{ d.id }}" method="post" >
+            {% csrf_token %}
+
+            <input type="text" placeholder="Enter Tree Species" name="species" style="border-radius: 5px"> <br>
+            <input type="text" placeholder="Enter Tree handler" name="handler" style="border-radius: 5px"> <br>
+            <input type="number" placeholder="Enter Number of Trees" name="number" style="border-radius: 5px"> <br>
+            <input type="date" placeholder="Enter Date of Planting" name="date" style="border-radius: 5px"> <br>
+            <a href="/insert"><button>Submit</button></a>
+
+        </form>
+        </div>
+
+        <div class="col-sm-6" style="background-color: beige">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Tree Species</th>
+                        <th scope="col">Tree Handler</th>
+                        <th scope="col">No. of Trees</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for d in data %}
+                <tr>
+                    <th scope="row">{{ d.id }}</th>
+                    <td>{{ d.species }}</td>
+                    <td>{{ d.handler }}</td>
+                    <td>{{ d.number }}</td>
+                    <td>{{ d.date }}</td>
+
+                    <td><a href="/update/{{d.id}}" type="button" class="btn btn-outline-warning">Edit</a></td>
+                    <td><a href="/delete/{{d.id}}" type="button" class="btn btn-outline-danger">Delete</a></td>
+                </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+</body>
+</html>

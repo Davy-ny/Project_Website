@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="{% static "css/accounts.css" %}">
+</head>
+<body>
+
+<div class="register">
+  <h2>Register Invoice</h2>
+
+  <form action="">
+    <input type="text" placeholder="First name">
+  <input type="text" placeholder="Middle name">
+  <input type="text" placeholder="Last name">
+  <input type="email" placeholder="Enter email address">
+  <input type="number" placeholder="Enter phone number">
+
+
+    <label for=""> Select country</label><br>
+    <select name="" id="">
+      <option  value="">Kenya</option>
+      <option value="">Tanzania</option>
+      <option  value="">Rwanda</option>
+      <option  value="">Burundi</option>
+      <option  value="">Eritrea</option>
+      <option value="">Afghanistan</option>
+
+    </select><br>
+
+    <label for=""> Gender</label><br>
+    <select name="" id="">
+      <option value="">male</option>
+      <option value="">female</option>
+      <option value="">other</option>
+    </select> <br>
+
+
+
+<button class="btn-create">Create account</button>
+
+  </form>
+
+</div>
+
+</body>
+</html>
